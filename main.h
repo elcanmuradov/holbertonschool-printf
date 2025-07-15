@@ -27,7 +27,7 @@ else if (format[size] == 'd' || format[size] == 'i')
 {
 int num = va_arg(args, int);
 char buffer[12];
-
+i = 0;
 if (num == 0)
 buffer[i++] = '0';
 else

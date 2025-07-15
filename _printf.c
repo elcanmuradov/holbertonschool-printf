@@ -32,6 +32,8 @@ else if (format[i] == 's')
 count += print_string(args);
 else if (format[i] == '%')
 count += print_percent(args);
+else if (format[i] == 'd' || format[i] == 'i')
+count += print_int(args);
 else
 {
 _putchar('%');

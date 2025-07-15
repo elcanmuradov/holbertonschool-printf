@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 int printed = 0;
 int size = 0;
 int i = 0;
+int j = 0;
 va_list args;
 va_start(args, format);
 
@@ -50,8 +51,7 @@ num /= 10;
 if (neg)
 buffer[i++] = '-';
 }
-
-int j = 0;  
+j = 0;
 while (j < i / 2)
 {
 char tmp = buffer[j];

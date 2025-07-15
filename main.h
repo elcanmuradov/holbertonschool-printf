@@ -8,29 +8,33 @@ int _printf(const char *format, ...)
 int size = 0;
 int num,i;
 char *qaliq,*arrnum;
-
+int *intpr;
+char *chrpr;
 va_list args;
 va_start(args,format);
 while(format[size] != '\0')
 {
 if (format[size] == '%'){
 if (format[size + 1] == 'd' || format[size + 1] == 'i'){
-write(1,va_arg(args,int),sizeof(va_arg(args,int)));
+intpr = malloc(sizeof(va_arg(args,int)));
+write(1,intpr,sizeof(intpr));
 size++;
 }
 else if (format[size + 1] == 'c'){
-write(1,va_arg(args,char),sizeof(va_arg(args,int)));
+chrpr = malloc(sizeof(va_arg(args,int)));
+write(1,chrpr,1);
 size++;
 }
 else if (format[size + 1] == 'p'){
-write(1,va_arg(args,int),sizeof(va_arg(args,int)));
+chrpr = malloc(sizeof(va_arg(args,int)));
+write(1,&chrpr,sizeof(chrpr));
 size++;
 }
 else if (format[size + 1] == 'X' || format[size + 1] == 'x'){
+intpr = malloc(sizeof(va_arg(args,int)));
 num = va_arg(args,int);
- *arrnum;
 i = 0;
- *qaliq = "0123456789abcdef";
+*qaliq = "0123456789abcdef";
 while (num > 0)
 {
 arrnum[i] = num%16;
@@ -42,6 +46,7 @@ write(1,num,sizeof(num));
 size++;
 }
 else if (format[size + 1] == 'O' || format[size + 1] == 'o'){
+intpr = malloc(sizeof(va_arg(args,int)));
 num = va_arg(args,int);
 *arrnum;
 i = 0;
@@ -55,6 +60,7 @@ i++;
 size++;
 }
 else if (format[size + 1] == 'u'){
+intpr = malloc(sizeof(va_arg(args,int)));
 write(1,va_arg(args,unsigned int),sizeof(unsigned int));
 size++;
 }

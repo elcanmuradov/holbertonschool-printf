@@ -44,7 +44,7 @@ while (num > 0)
 buffer[i++] = (num % 10) + '0';
 num /= 10;
 }
-int j = 0;
+
 if (neg)
 buffer[i++] = '-';
 }

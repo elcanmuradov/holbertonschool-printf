@@ -8,15 +8,16 @@
 int _printf(const char *format, ...)
 {
 int size = 0;
-int j = 0;
 int i = 0;
+int j = 0;
 va_list args;
 va_start(args, format);
+
 while (format && format[size])
 {
 if (format[size] == '%')
 {
-size++; 
+size++;
 if (format[size] == 'c')
 {
 char c = (char)va_arg(args, int);
@@ -26,7 +27,6 @@ else if (format[size] == 'd' || format[size] == 'i')
 {
 int num = va_arg(args, int);
 char buffer[12];
-
 
 if (num == 0)
 buffer[i++] = '0';
@@ -44,7 +44,6 @@ while (num > 0)
 buffer[i++] = (num % 10) + '0';
 num /= 10;
 }
-
 if (neg)
 buffer[i++] = '-';
 }
@@ -57,6 +56,7 @@ j++;
 }
 
 write(1, buffer, i);
+i = 0;
 }
 else if (format[size] == '%')
 {
@@ -76,4 +76,5 @@ size++;
 va_end(args);
 return size;
 }
+
 #endif /* MAIN_H */
